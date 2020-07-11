@@ -1,0 +1,11 @@
+<form [formGroup]="transferForm" (ngSubmit)="onSubmit(transferForm)">
+  <p>From Account</p>
+  <input formControlName="from" />
+  <p>To Account</p>
+  <input formControlName="to" />
+  <p>Amount</p>
+  <input formControlName="amount" />
+  <button type="submit" [disabled]="transferForm.invalid">
+    Submit
+  </button>
+</form>
