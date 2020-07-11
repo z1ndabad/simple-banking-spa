@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AppTransferPanelComponent } from './app-transfer-panel/app-transfer-panel.component';
+import { AppHomeComponent } from './banking-spa/app-home/app-home.component';
+import { AppTransferPanelComponent } from './banking-spa/app-transfer-panel/app-transfer-panel.component';
+import { AccountService } from './banking-spa/services/account-service.service';
 
 @NgModule({
-  declarations: [AppComponent, AppTransferPanelComponent],
+  declarations: [AppComponent, AppHomeComponent, AppTransferPanelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

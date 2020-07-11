@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BankAccount } from '../models/bankaccount';
 
 @Injectable({
   providedIn: 'root'
@@ -22,26 +23,4 @@ export class AccountService {
 
     return this.http.get(endpoint).toPromise() as Promise<BankAccount>;
   }
-}
-
-export interface BankAccount {
-  id: number;
-  accountNumber: number;
-  name: string;
-  currency: string;
-  balance: number;
-  transactions: [Transaction];
-}
-
-interface Transaction {
-  data: [TransactionData];
-}
-
-interface TransactionData {
-  amount: number;
-  categoryCode: string;
-  merchant: string;
-  merchantLogo: string;
-  transactionDate: number;
-  transactionType: string;
 }
