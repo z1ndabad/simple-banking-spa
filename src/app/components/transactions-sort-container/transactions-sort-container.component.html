@@ -1,0 +1,8 @@
+<h1>Transaction List</h1>
+<button
+  *ngFor="let attr of sortAttributes | keyvalue: keepOrder"
+  (click)="sort(attr.key)"
+>
+  {{ viewAttributeMap[attr.key] || attr.key | uppercase }}▲
+</button>
+<app-transaction-list [dataInput]="orderedTransactions"></app-transaction-list>

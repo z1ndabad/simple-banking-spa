@@ -5,8 +5,8 @@
 ></app-transfer-panel>
 <app-transfer-preview
   [dataInput]="transferPreviewData"
-  (transferApproved)="transferMoney()"
+  (transferApproved)="transferMoney($event)"
 ></app-transfer-preview>
-<app-recent-transactions-container
+<app-transactions-sort-container
   [dataInput]="transactions"
-></app-recent-transactions-container>
+></app-transactions-sort-container>

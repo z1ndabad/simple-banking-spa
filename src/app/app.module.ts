@@ -8,9 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/app-home/home.component';
 import { AppTransferPanelComponent } from './components/app-transfer-panel/app-transfer-panel.component';
 import { TransferPreviewComponent } from './components/transfer-preview/transfer-preview.component';
-import { RecentTransactionsContainerComponent } from './components/recent-transactions-container/recent-transactions-container.component';
+import { TransactionsSortContainerComponent } from './components/transactions-sort-container/transactions-sort-container.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
-import { TransactionComponent } from './components/transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +17,8 @@ import { TransactionComponent } from './components/transaction/transaction.compo
     HomeComponent,
     AppTransferPanelComponent,
     TransferPreviewComponent,
-    RecentTransactionsContainerComponent,
-    TransactionListComponent,
-    TransactionComponent
+    TransactionsSortContainerComponent,
+    TransactionListComponent
   ],
   imports: [
     BrowserModule,

@@ -26,20 +26,13 @@ export class HomeComponent implements OnInit {
     this.transferPreviewData = payload;
   }
 
-  transferMoney(): void {
+  transferMoney(payload: Transaction): void {
     this._updateDatabase({
-      balance: this.transferPanelData.balance - this.transferPreviewData.amount,
+      balance:
+        parseFloat(this.transferPanelData.balance) -
+        parseFloat(this.transferPreviewData.amount),
       transactions: {
-        data: [
-          {
-            amount: this.transferPreviewData.amount,
-            categoryCode: '12345',
-            merchant: this.transferPreviewData.to,
-            transactionDate: 2020,
-            transactionType: 'Online Transfer'
-          },
-          ...this.transactions
-        ]
+        data: [payload, ...this.transactions]
       }
     });
     this._updateViewData();
@@ -54,7 +47,7 @@ export class HomeComponent implements OnInit {
       this.transferPanelData = {
         accountNumber: acc.accountNumber,
         accountName: acc.accountName,
-        balance: acc.balance
+        balance: acc.balance.toString()
       };
       this.transactions = acc.transactions.data;
     });

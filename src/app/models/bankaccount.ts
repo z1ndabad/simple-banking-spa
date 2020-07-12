@@ -8,8 +8,8 @@ export interface BankAccount {
 }
 
 export interface Transaction {
-  amount: number;
-  categoryCode: string;
+  amount: string;
+  categoryCode?: string;
   merchant: string;
   merchantLogo?: string;
   transactionDate: number;

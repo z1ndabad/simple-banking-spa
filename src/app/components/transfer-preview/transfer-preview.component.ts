@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TransferPreviewData } from 'src/app/models/viewmodels';
+import { Transaction } from 'src/app/models/bankaccount';
 
 @Component({
   selector: 'app-transfer-preview',
@@ -9,7 +10,7 @@ import { TransferPreviewData } from 'src/app/models/viewmodels';
 export class TransferPreviewComponent {
   from: string;
   to: string;
-  amount: number;
+  amount: string;
 
   @Input()
   set dataInput(data: TransferPreviewData) {
@@ -20,13 +21,14 @@ export class TransferPreviewComponent {
     }
   }
 
-  @Output() transferApproved = new EventEmitter<TransferPreviewData>();
+  @Output() transferApproved = new EventEmitter<Transaction>();
 
   onTransfer(): void {
     this.transferApproved.emit({
-      from: this.from,
-      to: this.to,
-      amount: this.amount
+      amount: this.amount,
+      merchant: this.to,
+      transactionDate: Date.now(),
+      transactionType: 'Online Transfer'
     });
   }
 }

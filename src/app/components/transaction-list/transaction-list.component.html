@@ -1,6 +1,6 @@
-<h1>Transaction List</h1>
 <ul *ngIf="transactions">
   <li *ngFor="let transaction of transactions">
-    <app-transaction [transactionData]="transaction"></app-transaction>
+    <p>{{ transaction.merchant }}</p>
+    <p>{{ transaction.amount }}</p>
   </li>
 </ul>
