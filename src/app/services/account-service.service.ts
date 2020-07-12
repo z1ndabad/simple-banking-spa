@@ -1,47 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BankAccount } from '../models/bankaccount';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
   constructor(private http: HttpClient) {}
-
   private balance: number;
 
-  getAccountNumber(id: number): Promise<number> {
-    return this._getAccount(id).then((acc) => acc.accountNumber);
-  }
-
-  getBalance(id: number): Promise<number> {
-    return this._getAccount(id).then((acc) => acc.balance);
-  }
-
-  _getAccount(id: number): Promise<BankAccount> {
+  getAccount(id: number): Observable<BankAccount> {
+    //TODO: fill this out with local copy/event response to pull data again later
     const endpoint = `api/accounts/${id}`;
-
-    return this.http.get(endpoint).toPromise() as Promise<BankAccount>;
+    return this.http.get(endpoint) as Observable<BankAccount>;
   }
-}
 
-export interface BankAccount {
-  id: number;
-  accountNumber: number;
-  name: string;
-  currency: string;
-  balance: number;
-  transactions: [Transaction];
-}
-
-interface Transaction {
-  data: [TransactionData];
-}
-
-interface TransactionData {
-  amount: number;
-  categoryCode: string;
-  merchant: string;
-  merchantLogo: string;
-  transactionDate: number;
-  transactionType: string;
+  updateAccount(id: number, data: any): Observable<any> {
+    const endpoint = `api/accounts/${id}`;
+    return this.http.patch(endpoint, data, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    });
+  }
 }

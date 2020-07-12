@@ -1,0 +1,12 @@
+<img src="assets/background.jpg" />
+<app-transfer-panel
+  [dataInput]="this.transferPanelData"
+  (formSubmitted)="openTransferPreview($event)"
+></app-transfer-panel>
+<app-transfer-preview
+  [dataInput]="transferPreviewData"
+  (transferApproved)="transferMoney()"
+></app-transfer-preview>
+<app-recent-transactions-container
+  [dataInput]="transactions"
+></app-recent-transactions-container>
