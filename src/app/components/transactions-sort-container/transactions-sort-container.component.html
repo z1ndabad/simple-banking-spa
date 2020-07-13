@@ -12,10 +12,15 @@
         type="text"
         placeholder="Search by typing..."
       />
+      <span
+        *ngIf="search.value"
+        class="search-clear-icon"
+        (click)="search.value = ''; onKey(search.value)"
+        >x</span
+      >
     </div>
     <div class="sort-text">Sort by</div>
     <div class="filter-buttons-container">
-      <span></span>
       <button
         *ngFor="let attr of sortAttributes | keyvalue: keepOrder"
         (click)="clickSort(attr.key)"
@@ -34,7 +39,7 @@
       </button>
     </div>
   </div>
-  <div class="transaction-list">
+  <div class="transaction-list-container">
     <app-transaction-list
       [dataInput]="orderedTransactions"
     ></app-transaction-list>

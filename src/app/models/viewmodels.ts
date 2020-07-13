@@ -20,7 +20,7 @@ export interface TransactionsSortable {
 }
 
 export interface TransactionsPrintable {
-  amount: number;
+  amount: string;
   categoryCode?: string;
   merchant: string;
   merchantLogo?: string;

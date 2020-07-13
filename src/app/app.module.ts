@@ -9,7 +9,6 @@ import { AppTransferPanelComponent } from './components/app-transfer-panel/app-t
 import { TransferPreviewComponent } from './components/transfer-preview/transfer-preview.component';
 import { TransactionsSortContainerComponent } from './components/transactions-sort-container/transactions-sort-container.component';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
-import { SimplebarAngularModule } from 'simplebar-angular';
 import { ModalModule } from './_modal';
 
 @NgModule({
@@ -21,13 +20,7 @@ import { ModalModule } from './_modal';
     TransactionsSortContainerComponent,
     TransactionListComponent
   ],
-  imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    SimplebarAngularModule,
-    ModalModule
-  ],
+  imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, ModalModule],
   providers: [],
   bootstrap: [AppComponent]
 })

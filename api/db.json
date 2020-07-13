@@ -5,40 +5,9 @@
       "accountNumber": "000000004692",
       "accountName": "Free Checking",
       "currency": "USD",
-      "balance": -35,
+      "balance": 9890,
       "transactions": {
         "data": [
-          {
-            "amount": "200",
-            "merchant": "test ",
-            "transactionDate": 1594657404514,
-            "transactionType": "Online Transfer"
-          },
-          {
-            "amount": "10",
-            "merchant": "Break test",
-            "transactionDate": 1594573251033,
-            "transactionType": "Online Transfer"
-          },
-          {
-            "amount": "400.00",
-            "merchant": "Amount test",
-            "transactionDate": 1594570092324,
-            "transactionType": "Online Transfer"
-          },
-          {
-            "amount": "10",
-            "merchant": "Plumbing Test",
-            "transactionDate": 1594569691852,
-            "transactionType": "Online Transfer"
-          },
-          {
-            "amount": "1000",
-            "categoryCode": "12345",
-            "merchant": "Date Test",
-            "transactionDate": 1594568953271,
-            "transactionType": "Online Transfer"
-          },
           {
             "amount": "82.02",
             "categoryCode": "#12a580",

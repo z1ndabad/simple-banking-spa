@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { TransferPreviewData } from 'src/app/models/viewmodels';
 import { Transaction } from 'src/app/models/bankaccount';
+import { ModalService } from '../../_modal';
 
 @Component({
   selector: 'app-transfer-preview',
@@ -23,6 +24,8 @@ export class TransferPreviewComponent {
 
   @Output() transferApproved = new EventEmitter<Transaction>();
 
+  constructor(private modalService: ModalService) {}
+
   onTransfer(): void {
     this.transferApproved.emit({
       amount: this.amount,
@@ -30,5 +33,6 @@ export class TransferPreviewComponent {
       transactionDate: Date.now(),
       transactionType: 'Online Transfer'
     });
+    this.modalService.close('transfer-preview-modal');
   }
 }

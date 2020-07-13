@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Transaction } from 'src/app/models/bankaccount';
 import orderBy from 'lodash/orderBy';
 import { TransactionsSortable } from 'src/app/models/viewmodels';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-transactions-sort-container',
@@ -37,6 +38,8 @@ export class TransactionsSortContainerComponent {
       this._sort(this.activeAttribute);
     }
   }
+
+  constructor(private fb: FormBuilder) {}
 
   onKey(searchString: string): void {
     this.orderedTransactions = this.transactions.filter((transaction) => {

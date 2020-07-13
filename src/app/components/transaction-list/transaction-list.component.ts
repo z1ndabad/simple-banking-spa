@@ -15,8 +15,6 @@ export class TransactionListComponent {
   @Input()
   set dataInput(data: TransactionsSortable[]) {
     if (data) {
-      console.log('input data: ');
-      console.log(data);
       this.transactions = data.map((item) => {
         const formattedDateArray = new Date(item.transactionDate)
           .toLocaleDateString('en-US', {
@@ -29,11 +27,10 @@ export class TransactionListComponent {
 
         return {
           ...item,
-          transactionDate: formattedDateArray.join('')
+          transactionDate: formattedDateArray.join(''),
+          amount: item.amount.toFixed(2)
         };
       });
-      console.log('date');
-      console.log(this.transactions);
     }
   }
 }

@@ -1,5 +1,25 @@
-<h2>Confirm Transfer</h2>
-<p>From Account: {{ from }}</p>
-<p>To Account: {{ to }}</p>
-<p>Amount: {{ amount }}</p>
-<button (click)="onTransfer()">Transfer</button>
+<div class="transfer-preview-container box-shadow">
+  <div class="panel-top-bar">
+    <h2>Confirm Transfer</h2>
+  </div>
+  <div class="body">
+    <div class="review-text">Please review your transfer details below:</div>
+    <div class="inset">
+      <div class="line-pair">
+        <p class="form-field">From Account</p>
+        <p>{{ from }}</p>
+      </div>
+      <div class="line-pair">
+        <p class="form-field">To Account</p>
+        <p>{{ to }}</p>
+      </div>
+      <div class="line-pair">
+        <p class="form-field">Amount</p>
+        <p>{{ amount }}</p>
+      </div>
+    </div>
+    <div class="button-container">
+      <button (click)="onTransfer()">TRANSFER</button>
+    </div>
+  </div>
+</div>

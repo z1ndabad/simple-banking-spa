@@ -1,7 +1,6 @@
 .container {
   background: white;
   width: 100%;
-  overflow: auto;
   max-height: 100%;
 }
 
@@ -20,8 +19,13 @@
   margin: 0px 25px;
 }
 
+.search-clear-icon {
+  font-family: Kanit;
+  font-weight: 300;
+}
+
 .search-input {
-  width: 100%;
+  width: 90%;
   font-family: Kanit;
   font-weight: 300;
   font-size: large;
@@ -55,11 +59,37 @@ button {
 }
 
 button:focus {
-  border: none;
+  border-style: none;
 }
 
 .sort-icon {
   color: #999999;
   font-size: smaller;
   margin-left: 5px;
+}
+
+.transaction-list-container {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 800px) {
+  .transaction-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    height: fit-content;
+  }
+
+  .transaction-controls > * {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .sort-text {
+    visibility: hidden;
+  }
+
+  .search-box {
+    width: 80%;
+  }
 }
