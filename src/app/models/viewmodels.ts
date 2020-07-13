@@ -18,3 +18,12 @@ export interface TransactionsSortable {
   transactionDate: number;
   transactionType: string;
 }
+
+export interface TransactionsPrintable {
+  amount: number;
+  categoryCode?: string;
+  merchant: string;
+  merchantLogo?: string;
+  transactionDate: string;
+  transactionType: string;
+}

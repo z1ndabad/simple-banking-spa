@@ -5,6 +5,7 @@ import {
   TransferPreviewData
 } from 'src/app/models/viewmodels';
 import { BankAccountUpdate, Transaction } from 'src/app/models/bankaccount';
+import { ModalService } from '../../_modal';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,10 @@ import { BankAccountUpdate, Transaction } from 'src/app/models/bankaccount';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private modalService: ModalService
+  ) {}
   transferPanelData: TransferPanelData;
   transferPreviewData: TransferPreviewData;
   transactions: Transaction[];
@@ -24,6 +28,7 @@ export class HomeComponent implements OnInit {
 
   openTransferPreview(payload: TransferPreviewData): void {
     this.transferPreviewData = payload;
+    this.modalService.open('transfer-preview-modal');
   }
 
   transferMoney(payload: Transaction): void {

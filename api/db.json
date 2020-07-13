@@ -5,9 +5,15 @@
       "accountNumber": "000000004692",
       "accountName": "Free Checking",
       "currency": "USD",
-      "balance": 165,
+      "balance": -35,
       "transactions": {
         "data": [
+          {
+            "amount": "200",
+            "merchant": "test ",
+            "transactionDate": 1594657404514,
+            "transactionType": "Online Transfer"
+          },
           {
             "amount": "10",
             "merchant": "Break test",

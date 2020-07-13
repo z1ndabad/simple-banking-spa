@@ -1,21 +1,39 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Transaction } from 'src/app/models/bankaccount';
+import { Component, Input } from '@angular/core';
+import {
+  TransactionsPrintable,
+  TransactionsSortable
+} from 'src/app/models/viewmodels';
 
 @Component({
   selector: 'app-transaction-list',
   templateUrl: './transaction-list.component.html',
   styleUrls: ['./transaction-list.component.css']
 })
-export class TransactionListComponent /*implements OnInit*/ {
-  transactions: Transaction[];
+export class TransactionListComponent {
+  transactions: TransactionsPrintable[];
 
   @Input()
-  set dataInput(data: Transaction[]) {
+  set dataInput(data: TransactionsSortable[]) {
     if (data) {
-      this.transactions = data;
+      console.log('input data: ');
+      console.log(data);
+      this.transactions = data.map((item) => {
+        const formattedDateArray = new Date(item.transactionDate)
+          .toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric'
+          })
+          .split(' ');
+
+        formattedDateArray.splice(1, 0, '. ');
+
+        return {
+          ...item,
+          transactionDate: formattedDateArray.join('')
+        };
+      });
+      console.log('date');
+      console.log(this.transactions);
     }
   }
-
-  //constructor() {}
-  //ngOnInit(): void {}
 }

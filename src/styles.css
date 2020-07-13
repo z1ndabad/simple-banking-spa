@@ -1,5 +1,7 @@
-.container {
-  display: grid;
+body {
+  margin: 0px;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 .box-shadow {
@@ -7,15 +9,25 @@
 }
 
 .panel-top-bar {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: [col1] 20px [col2] 10% [col3] 80% [col4] 20px;
   background-color: #0c8397;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
-body {
-  margin: 0px;
+h2 {
+  font-family: Kanit;
+  font-weight: 300;
+  color: white;
+  grid-column-start: col3;
+  grid-column-end: col4;
+  text-align: center;
+  margin: 15px 15%;
+}
+
+.icon {
+  grid-column-start: col2;
 }
 
 @font-face {

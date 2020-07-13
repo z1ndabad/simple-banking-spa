@@ -39,13 +39,11 @@ export class TransactionsSortContainerComponent {
   }
 
   onKey(searchString: string): void {
-    console.log(searchString);
     this.orderedTransactions = this.transactions.filter((transaction) => {
       return transaction.merchant
         .toLowerCase()
         .includes(searchString.toLowerCase());
     });
-    console.log(this.orderedTransactions);
     this._sort(this.activeAttribute);
   }
 

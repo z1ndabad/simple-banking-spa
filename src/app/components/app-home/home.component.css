@@ -1,13 +1,19 @@
-.container {
-  background: url('src/assets/background.jpg');
-  background-repeat: no-repeat;
+.container.top-level {
+  background: url('src/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
   border: 0px;
   margin: 0px;
   padding: 0px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
 
+.container-body {
+  width: 100vw;
   display: grid;
-  grid-template-columns: 10% [col1] 30% [col2] 50% [col3] 10%;
-  grid-template-rows: 7% [row1];
+  grid-template-columns: 10vw [col1] 25vw [col2] 50vw [col3] 10vw;
+  grid-template-rows: 5vh [row1] 45vh [row2] 40vh [row3] 10vh;
 }
 
 #top-bar {
@@ -19,16 +25,19 @@
 
 #top-logo {
   margin-left: 10%;
+  height: 35px;
 }
 
 #transfer-panel {
   grid-column-start: col1;
   grid-column-end: col2;
   grid-row-start: row1;
+  grid-row-end: row2;
 }
 
 #transaction-panel {
   grid-column-start: col2;
   grid-column-end: col3;
   grid-row-start: row1;
+  grid-row-end: row3;
 }
