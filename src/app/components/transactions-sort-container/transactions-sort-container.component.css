@@ -1,0 +1,95 @@
+.container {
+  background: white;
+  width: 100%;
+  max-height: 100%;
+}
+
+.transaction-controls {
+  margin-top: 12px;
+  margin-bottom: 15px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-box {
+  width: 35%;
+  margin: 0px 25px;
+}
+
+.search-clear-icon {
+  font-family: Kanit;
+  font-weight: 300;
+}
+
+.search-input {
+  width: 90%;
+  font-family: Kanit;
+  font-weight: 300;
+  font-size: large;
+  border-width: 0 0 1px 0;
+  border-color: #d6d2ce;
+}
+
+.sort-text {
+  margin-right: 8px;
+  font-family: Kanit;
+  font-weight: 500;
+}
+
+.filter-buttons-container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 25px;
+}
+
+button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: Kanit;
+  font-weight: 300;
+  font-size: 1em;
+  background-color: white;
+  border: 1px solid #cccccc;
+  align-self: flex-end;
+  padding: 4px 18px;
+}
+
+button:focus {
+  border-style: none;
+}
+
+.sort-icon {
+  color: #999999;
+  font-size: smaller;
+  margin-left: 5px;
+}
+
+.transaction-list-container {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+@media (max-width: 800px) {
+  .transaction-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    height: fit-content;
+  }
+
+  .transaction-controls > * {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .sort-text {
+    visibility: hidden;
+  }
+
+  .search-box {
+    width: 80%;
+  }
+}

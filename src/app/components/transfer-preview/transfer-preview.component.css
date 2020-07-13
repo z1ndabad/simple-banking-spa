@@ -1,0 +1,54 @@
+.panel-top-bar {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.body {
+  padding-top: 15px;
+  padding-left: 20px;
+}
+
+.inset {
+  padding-left: 8%;
+}
+
+.review-text {
+  font-family: Kanit;
+  font-weight: 300;
+  font-size: large;
+}
+
+.line-pair {
+  padding-top: 1px;
+  line-height: 0.3em;
+}
+
+p.form-field {
+  font-family: Kanit;
+  font-weight: 500;
+  line-height: 0em;
+}
+
+p {
+  font-family: Kanit;
+  font-weight: 300;
+}
+
+.button-container {
+  text-align: center;
+  padding-top: 4%;
+  padding-bottom: 4%;
+}
+
+button {
+  font-family: Kanit;
+  font-weight: 300;
+  font-size: large;
+  width: 70%;
+  padding: 10px 0px;
+  background-color: #ee7033;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}

@@ -1,0 +1,65 @@
+.container.top-level {
+  background: url('src/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-body {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 8vw [col1] 26vw [col2] 58vw [col3] 8vw;
+  grid-template-rows: 4vh [row1] 50vh [row2] 35vh [row3];
+}
+
+#top-bar {
+  background-color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  border-bottom: 2px solid #ff9655;
+}
+
+#top-logo {
+  margin-left: 10%;
+  height: 35px;
+}
+
+#transfer-panel {
+  grid-column-start: col1;
+  grid-column-end: col2;
+  grid-row-start: row1;
+  grid-row-end: row2;
+  grid-area: 'transfer';
+}
+
+#transaction-panel {
+  grid-column-start: col2;
+  grid-column-end: col3;
+  grid-row-start: row1;
+  grid-row-end: row3;
+  grid-area: 'transactions';
+}
+
+@media (max-width: 800px) {
+  .container-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #transfer-panel {
+    padding: 5vh 5vw 2.5vh 5vw;
+    width: 90vw;
+  }
+
+  #transaction-panel {
+    padding: 2.5vh 5vw 5vh 5vw;
+    width: 90vw;
+  }
+}

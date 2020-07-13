@@ -1,0 +1,47 @@
+<div class="container box-shadow">
+  <div class="panel-top-bar">
+    <img class="icon" src="assets/icons/briefcase-edited.png" />
+    <h2>Recent Transactions</h2>
+  </div>
+  <div class="transaction-controls">
+    <div class="search-box">
+      <input
+        class="search-input"
+        #search
+        (keyup)="onKey(search.value)"
+        type="text"
+        placeholder="Search by typing..."
+      />
+      <span
+        *ngIf="search.value"
+        class="search-clear-icon"
+        (click)="search.value = ''; onKey(search.value)"
+        >x</span
+      >
+    </div>
+    <div class="sort-text">Sort by</div>
+    <div class="filter-buttons-container">
+      <button
+        *ngFor="let attr of sortAttributes | keyvalue: keepOrder"
+        (click)="clickSort(attr.key)"
+      >
+        <span>{{ viewAttributeMap[attr.key] || attr.key | uppercase }}</span
+        ><span
+          class="sort-icon"
+          *ngIf="sortAttributes[attr.key].selected && sortAscending"
+          >▲</span
+        >
+        <span
+          class="sort-icon"
+          *ngIf="sortAttributes[attr.key].selected && !sortAscending"
+          >▼</span
+        >
+      </button>
+    </div>
+  </div>
+  <div class="transaction-list-container">
+    <app-transaction-list
+      [dataInput]="orderedTransactions"
+    ></app-transaction-list>
+  </div>
+</div>

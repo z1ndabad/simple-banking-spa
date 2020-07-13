@@ -1,0 +1,21 @@
+<div class="transaction-list" *ngIf="transactions">
+  <div class="transaction-tile" *ngFor="let transaction of transactions">
+    <div
+      class="category-code-colour"
+      [style.background-color]="
+        transaction.categoryCode ? transaction.categoryCode : '#8511a8'
+      "
+    ></div>
+    <div class="bordered-area">
+      <div class="date">
+        {{ transaction.transactionDate }}
+      </div>
+      <img class="logo" src="{{ transaction.merchantLogo }}" />
+      <div class="text-detail">
+        <div class="merchant">{{ transaction.merchant }}</div>
+        <div class="transaction-type">{{ transaction.transactionType }}</div>
+      </div>
+      <div class="amount">-${{ transaction.amount }}</div>
+    </div>
+  </div>
+</div>

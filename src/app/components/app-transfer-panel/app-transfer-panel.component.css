@@ -1,0 +1,94 @@
+.container {
+  background: white;
+  height: 100%;
+  width: 90%;
+}
+
+.form-body {
+  display: flex;
+  background: white;
+  justify-content: center;
+  height: fit-content;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  overflow-y: auto;
+}
+
+form {
+  width: 90%;
+  height: 50%;
+}
+
+.form-field-heading {
+  font-family: Kanit;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 11pt;
+}
+
+input {
+  flex-shrink: 0;
+  flex-basis: 100%;
+  width: 100%;
+  background-color: white;
+  border-width: 0 0 2px 0;
+  border-color: #d6d2ce;
+  font-family: Kanit;
+  font-size: medium;
+  font-weight: 300;
+  color: #7b7772;
+}
+
+.currency-input {
+  border-width: 0 0 2px 0;
+  border-color: #d6d2ce;
+  border-style: solid;
+  font-family: Kanit;
+  font-size: medium;
+  font-weight: 300;
+  color: #7b7772;
+  width: 100%;
+}
+
+input#amount {
+  margin-left: px;
+  width: 90%;
+  border-width: 0 0 0 0;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+button {
+  font-family: Kanit;
+  font-weight: 300;
+  font-size: large;
+  width: 70%;
+  padding: 10px 0px;
+  background-color: #ee7033;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.validation {
+  font-family: Kanit;
+  font-weight: 300;
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+  }
+
+  .form-field-heading {
+    font-size: 14pt;
+  }
+
+  input {
+    font-size: 14pt;
+  }
+}

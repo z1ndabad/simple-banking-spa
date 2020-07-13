@@ -1,0 +1,31 @@
+<div class="container box-shadow">
+  <div class="panel-top-bar">
+    <img class="icon" src="assets/icons/arrows-edited.png" />
+    <h2>Make a Transfer</h2>
+  </div>
+  <div class="form-body">
+    <form [formGroup]="transferForm" (ngSubmit)="onSubmit(transferForm)">
+      <p class="form-field-heading">FROM ACCOUNT</p>
+      <input formControlName="from" />
+      <p class="form-field-heading">TO ACCOUNT</p>
+      <input formControlName="to" />
+      <p class="form-field-heading">AMOUNT</p>
+      <div>
+        <div class="currency-input">
+          $<input id="amount" formControlName="amount" />
+        </div>
+        <div class="validation validation-amount" *ngIf="badAmount">
+          Amount must be greater than 0
+        </div>
+        <div class="validation validation-balance" *ngIf="overdrawn">
+          Sorry, your account overdraft limit is $500.00
+        </div>
+      </div>
+      <div class="button-container">
+        <button type="submit" [disabled]="transferForm.invalid">
+          SUBMIT
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

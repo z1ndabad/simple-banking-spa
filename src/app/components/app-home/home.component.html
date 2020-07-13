@@ -1,0 +1,26 @@
+<div class="container top-level">
+  <div id="top-bar">
+    <img id="top-logo" src="assets/logo.jpg" />
+  </div>
+  <div class="container-body">
+    <div id="transfer-panel">
+      <app-transfer-panel
+        [dataInput]="this.transferPanelData"
+        (formSubmitted)="openTransferPreview($event)"
+      ></app-transfer-panel>
+    </div>
+    <jw-modal id="transfer-preview-modal">
+      <div id="transfer-preview">
+        <app-transfer-preview
+          [dataInput]="transferPreviewData"
+          (transferApproved)="transferMoney($event)"
+        ></app-transfer-preview>
+      </div>
+    </jw-modal>
+    <div id="transaction-panel">
+      <app-transactions-sort-container
+        [dataInput]="transactions"
+      ></app-transactions-sort-container>
+    </div>
+  </div>
+</div>
