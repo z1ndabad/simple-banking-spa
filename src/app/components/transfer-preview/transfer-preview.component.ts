@@ -18,7 +18,7 @@ export class TransferPreviewComponent {
     if (data) {
       this.from = data.from;
       this.to = data.to;
-      this.amount = data.amount;
+      this.amount = parseFloat(data.amount).toFixed(2);
     }
   }
 
