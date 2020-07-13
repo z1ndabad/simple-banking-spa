@@ -1,8 +1,39 @@
-<h1>Transaction List</h1>
-<button
-  *ngFor="let attr of sortAttributes | keyvalue: keepOrder"
-  (click)="sort(attr.key)"
->
-  {{ viewAttributeMap[attr.key] || attr.key | uppercase }}▲
-</button>
-<app-transaction-list [dataInput]="orderedTransactions"></app-transaction-list>
+<div class="container box-shadow">
+  <div class="panel-top-bar">
+    <img src="assets/icons/briefcase-edited.png" />
+    <h2>Recent Transactions</h2>
+  </div>
+  <div class="transaction-controls">
+    <div class="search-box">
+      <input
+        #search
+        (keyup)="onKey(search.value)"
+        type="text"
+        placeholder="Search by typing..."
+      />
+      <div class="filter-buttons">
+        <button
+          *ngFor="let attr of sortAttributes | keyvalue: keepOrder"
+          (click)="clickSort(attr.key)"
+        >
+          <span>{{ viewAttributeMap[attr.key] || attr.key | uppercase }}</span
+          ><span
+            class="sort-icon"
+            *ngIf="sortAttributes[attr.key].selected && sortAscending"
+            >▲</span
+          >
+          <span
+            class="sort-icon"
+            *ngIf="sortAttributes[attr.key].selected && !sortAscending"
+            >▼</span
+          >
+        </button>
+      </div>
+    </div>
+    <div class="transaction-list">
+      <app-transaction-list
+        [dataInput]="orderedTransactions"
+      ></app-transaction-list>
+    </div>
+  </div>
+</div>

@@ -1,12 +1,22 @@
-<img src="assets/background.jpg" />
-<app-transfer-panel
-  [dataInput]="this.transferPanelData"
-  (formSubmitted)="openTransferPreview($event)"
-></app-transfer-panel>
-<app-transfer-preview
-  [dataInput]="transferPreviewData"
-  (transferApproved)="transferMoney($event)"
-></app-transfer-preview>
-<app-transactions-sort-container
-  [dataInput]="transactions"
-></app-transactions-sort-container>
+<div id="top-bar">
+  <img id="top-logo" src="assets/logo.jpg" />
+</div>
+<div class="container">
+  <div id="transfer-panel">
+    <app-transfer-panel
+      [dataInput]="this.transferPanelData"
+      (formSubmitted)="openTransferPreview($event)"
+    ></app-transfer-panel>
+  </div>
+  <div id="transfer-preview" hidden="true">
+    <app-transfer-preview
+      [dataInput]="transferPreviewData"
+      (transferApproved)="transferMoney($event)"
+    ></app-transfer-preview>
+  </div>
+  <div id="transaction-panel">
+    <app-transactions-sort-container
+      [dataInput]="transactions"
+    ></app-transactions-sort-container>
+  </div>
+</div>

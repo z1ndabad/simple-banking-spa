@@ -28,19 +28,28 @@ export class AppTransferPanelComponent implements OnInit {
     this.transferForm = this.fb.group({
       from: [{ value: '', disabled: true }, Validators.required],
       to: ['', Validators.required],
-      amount: ['', Validators.required]
+      amount: [
+        '',
+        Validators.compose([Validators.required, Validators.min(0.01)])
+      ]
     });
   }
 
   updateForm(form: FormGroup, data: TransferPanelData): void {
     const accountNameFormatted = `${
       data.accountName
-    } (${data.accountNumber.slice(-4)} - ${data.balance})`;
+    } (${data.accountNumber.slice(-4)} - \$${this._formatCurrency(
+      data.balance
+    )})`;
 
     form.patchValue({ from: accountNameFormatted });
   }
 
   onSubmit(form: FormGroup): void {
     this.formSubmitted.emit(form.getRawValue());
+  }
+
+  _formatCurrency(curr: string): string {
+    return parseFloat(curr).toFixed(2).toString();
   }
 }

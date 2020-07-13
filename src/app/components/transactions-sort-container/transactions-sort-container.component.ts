@@ -8,16 +8,16 @@ import { TransactionsSortable } from 'src/app/models/viewmodels';
   templateUrl: './transactions-sort-container.component.html',
   styleUrls: ['./transactions-sort-container.component.css']
 })
-export class TransactionsSortContainerComponent implements OnInit {
+export class TransactionsSortContainerComponent {
   transactions: TransactionsSortable[];
   orderedTransactions: TransactionsSortable[];
-  sortOrder: string;
-  sortOrderView = {};
+  sortAscending = false;
   sortAttributes = {
-    date: { selected: 0 },
-    merchant: { selected: 0 },
-    amount: { selected: 0 }
+    date: { selected: false },
+    merchant: { selected: false },
+    amount: { selected: false }
   };
+  activeAttribute = 'date';
 
   viewAttributeMap = {
     merchant: 'beneficiary'
@@ -27,19 +27,53 @@ export class TransactionsSortContainerComponent implements OnInit {
   set dataInput(data: Transaction[]) {
     if (data) {
       this.transactions = data.map((item) => {
-        return { ...item, amount: parseFloat(item.amount) };
+        return {
+          ...item,
+          amount: parseFloat(item.amount),
+          date: new Date(item.transactionDate)
+        };
       });
-      console.log(this.transactions);
-      this.sort('date');
+      this.orderedTransactions = this.transactions;
+      this._sort(this.activeAttribute);
     }
   }
 
-  ngOnInit(): void {
-    this.sortAttributes.date.selected = 1;
+  onKey(searchString: string): void {
+    console.log(searchString);
+    this.orderedTransactions = this.transactions.filter((transaction) => {
+      return transaction.merchant
+        .toLowerCase()
+        .includes(searchString.toLowerCase());
+    });
+    console.log(this.orderedTransactions);
+    this._sort(this.activeAttribute);
   }
 
-  sort(attr: string): void {
-    this.orderedTransactions = orderBy(this.transactions, [attr], 'asc');
+  clickSort(attr: string): void {
+    this._checkAscending(attr);
+    this._sort(attr);
+  }
+
+  _sort(attr: string): void {
+    this.orderedTransactions = orderBy(
+      this.orderedTransactions,
+      [attr],
+      this.sortAscending ? 'asc' : 'desc'
+    );
+  }
+
+  _checkAscending(attr: string): void {
+    if (this.sortAttributes[attr].selected) {
+      this.sortAscending
+        ? (this.sortAscending = false)
+        : (this.sortAscending = true);
+    } else {
+      Object.keys(this.sortAttributes).forEach((key) => {
+        this.sortAttributes[key].selected = false;
+      });
+      this.sortAttributes[attr].selected = true;
+    }
+    this.activeAttribute = attr;
   }
 
   keepOrder = (a, b): number => a;

@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+  display: grid;
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 40px 1px rgba(0, 0, 0, 0.3);
+}
+
+.panel-top-bar {
+  display: flex;
+  flex-direction: row;
+  background-color: #0c8397;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0px;
+}
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('src/assets/fonts/extra-light/Kanit-ExtraLight.woff2')
+      format('woff2'),
+    url('src/assets/fonts/extra-light/Kanit-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('src/assets/fonts/medium/Kanit-Medium.woff2') format('woff2'),
+    url('src/assets/fonts/medium/Kanit-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kanit';
+  src: url('src/assets/fonts/light/Kanit-Light.woff2') format('woff2'),
+    url('src/assets/fonts/light/Kanit-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}

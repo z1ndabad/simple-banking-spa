@@ -1,12 +1,27 @@
-<h1>Make a Transfer</h1>
-<form [formGroup]="transferForm" (ngSubmit)="onSubmit(transferForm)">
-  <p>From Account</p>
-  <input formControlName="from" />
-  <p>To Account</p>
-  <input formControlName="to" />
-  <p>Amount</p>
-  <input formControlName="amount" />
-  <button type="submit" [disabled]="transferForm.invalid">
-    Submit
-  </button>
-</form>
+<div class="container box-shadow">
+  <div class="panel-top-bar">
+    <img src="assets/icons/arrows-edited.png" />
+    <h2>Make a Transfer</h2>
+  </div>
+  <div class="form-body">
+    <form [formGroup]="transferForm" (ngSubmit)="onSubmit(transferForm)">
+      <p class="form-field-heading">FROM ACCOUNT</p>
+      <input formControlName="from" />
+      <p class="form-field-heading">TO ACCOUNT</p>
+      <input formControlName="to" />
+      <p class="form-field-heading">AMOUNT</p>
+      <div>
+        <input id="amount" formControlName="amount" />
+        <div *ngIf="transferForm.get('amount').hasError('min')">
+          Amount must be greater than 0
+        </div>
+      </div>
+      <div class="button-spacer"></div>
+      <div class="button-container">
+        <button type="submit" [disabled]="transferForm.invalid">
+          SUBMIT
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.container {
+  background: white;
+  width: 750px;
+}
+
+h2 {
+  font-family: Kanit;
+  font-weight: 300;
+  color: white;
+  align-self: center;
+  margin: 15px 230px;
+}
+
+.sort-icon {
+  color: #999999;
+  font-size: smaller;
+}
